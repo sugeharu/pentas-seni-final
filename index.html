@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pentas Seni 2025 - KB-TK AISYIYAH 21 RAWAMANGUN</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/comp/TKSD.png" type="image/png">
+</head>
+<body>
+    
+    <div class="header">
+        <div class="logo">
+            <img src="img/comp/TKSD.png" alt="TK Logo">
+        </div>
+        <div class="title">KB-TK AISYIYAH 21 RAWAMANGUN</div>
+    </div>
+    <div class="container">
+        <div class="earth-container">
+            <img src="img/comp/logotkkm.png" alt="Logo" class="earth-logo"> <!-- Tambahkan gambar logo -->
+            <img src="img/comp/02.jpg" alt="Rotating Earth" class="rotating-earth">
+            <div class="earth-gradient"></div>
+        </div>
+
+        <div class="welcome-banner">
+            <h2>Selamat Datang</h2>
+            <h3>Di Pentas Seni 2025</h3>
+            <p>Silahkan check in untuk mengetahui nomor kursi yang dapat anda tempati</p>
+        </div>
+
+        <div class="absensi-banner">
+            <h4>ABSENSI PENTAS SENI 2025</h4>
+        </div>
+
+        <div class="search-section">
+            <button id="addStudentBtn" class="add-student-btn">
+                <img src="img/comp/user.png" alt="Add Student">
+            </button>
+            <input type="text" id="searchInput" placeholder="Nama anak">
+            <button id="searchButton">
+                <img src="img/comp/search.png" alt="Search">
+            </button>
+            <div id="searchResults" class="search-results"></div>
+            
+        </div>
+
+        <div class="classes-section">
+            <div class="class-row">
+                <button class="class-btn kb" data-class="KB B1">KB B1</button>
+                <button class="class-btn kb" data-class="KB B2">KB B2</button>
+            </div>
+            <div class="class-row">
+                <button class="class-btn tka" data-class="TK A1">TK A1</button>
+                <button class="class-btn tka" data-class="TK A2">TK A2</button>
+                <button class="class-btn tka" data-class="TK A3">TK A3</button>
+                <button class="class-btn tka" data-class="TK A4">TK A4</button>
+            </div>
+            <div class="class-row">
+                <button class="class-btn tkb" data-class="TK B1">TK B1</button>
+                <button class="class-btn tkb" data-class="TK B2">TK B2</button>
+                <button class="class-btn tkb" data-class="TK B3">TK B3</button>
+                <button class="class-btn tkb" data-class="TK B4">TK B4</button>
+            </div>
+        </div>
+
+        <div id="studentSelectionModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modalTitle">Pilih Nama Anak</h2>
+                <div id="studentsList"></div>
+            </div>
+        </div>
+
+        <div id="seatNotificationModal" class="modal">
+            <div class="modal-content notification">
+                <h2>Nomor Bangku Anda</h2>
+                <p id="seatNumber"></p>
+                <button id="closeNotification">OK</button>
+            </div>
+        </div>
+
+        <!-- Add New Student Modal -->
+        <div id="addStudentModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeAddStudent">&times;</span>
+                <h2>Tambah Siswa Baru</h2>
+                <form id="addStudentForm">
+                    <input type="text" id="newStudentName" placeholder="Nama Siswa" required>
+                    <select id="newStudentClass" required>
+                        <option value="">Pilih Kelas</option>
+                        <option value="KB B1">KB B1</option>
+                        <option value="KB B2">KB B2</option>
+                        <option value="TK A1">TK A1</option>
+                        <option value="TK A2">TK A2</option>
+                        <option value="TK A3">TK A3</option>
+                        <option value="TK A4">TK A4</option>
+                        <option value="TK B1">TK B1</option>
+                        <option value="TK B2">TK B2</option>
+                        <option value="TK B3">TK B3</option>
+                        <option value="TK B4">TK B4</option>
+                    </select>
+                    <button type="submit">Tambah Siswa</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="results-section">
+            <h3>Yang sudah hadir & Nomor bangku yang di dapat</h3>
+            <table id="attendanceTable">
+                <thead>
+                    <tr>
+                        <th>Nama anak</th>
+                        <th>Kelas</th>
+                        <th>No.Bangku</th>
+                    </tr>
+                </thead>
+                <tbody id="attendanceList">
+                    <!-- Data akan ditambahkan secara dinamis -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seat-box">
+            <div class="seat-header">
+                <h3>DENAH KURSI PENTAS SENI</h3>
+            </div>
+            <div class="toggle-container">
+                <button id="toggleSeats" class="toggle-seats-btn">Sembunyikan Denah</button>
+            </div>
+            <div class="seat-controls">
+                <button id="blockModeBtn" class="block-mode-btn">Mode Blokir Kursi</button>
+                <p id="blockModeInfo" class="block-mode-info">Klik pada kursi untuk memblokir/membuka blokir kursi yang tidak dapat digunakan</p>
+            </div>
+            <div id="seatContainer" class="seat-container"></div>
+            <div id="seatClickInfo" class="seat-click-info"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>KB-TK AISYIYAH 21 RAWAMANGUN</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/tkkbaisyiyah21/" target="_blank">
+                <img src="img/comp/insta.png" alt="Instagram">
+            </a>
+            <a href="https://www.facebook.com/aisyiyah21rawamangun" target="_blank">
+                <img src="img/comp/fb.png" alt="Facebook">
+            </a>
+        </div>
+    </footer>
+    
+    <button id="backToTop" class="back-to-top">⬆</button>
+
+    <script src="js/script.js"></script>
+    <script src="js/idleRedirect.js"></script>
+    <script>
+        // Scroll to top functionality
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopButton.classList.toggle('show', window.scrollY > 200);
+        });
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

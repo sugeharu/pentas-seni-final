@@ -1,0 +1,43 @@
+ini buat catatan aja
+
+alur
+Pengguna mengunjungi halaman yang menampilkan daftar item.
+Pengguna memilih item yang diinginkan.
+Permintaan dikirim ke server untuk memperbarui status item.
+Server memeriksa apakah item sudah dipilih. Jika belum, status item diperbarui.
+UI diperbarui untuk menandai item sebagai terpilih dan mencegah pemilihan lebih lanjut.
+
+
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+
+    KB-TK AISYIYAH RAWAMANGUN
+
+    #C8EFD0
+    #189B4B
+    #9DD4A9
+    #acebc4
+    #74BF44 
+    #F38324
+
+    -- Create the database
+CREATE DATABASE IF NOT EXISTS pentas_seni_2025;
+
+-- Use the database
+USE pentas_seni_2025;
+
+-- Create the table for storing student names and seat numbers
+CREATE TABLE IF NOT EXISTS students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama_siswa VARCHAR(255) NOT NULL,
+    nomor_kursi VARCHAR(50) NOT NULL,
+    UNIQUE (nomor_kursi) -- Ensure seat numbers are unique
+);
+
+-- Insert sample data
+INSERT INTO students (nama_siswa, nomor_kursi) VALUES
+('John Doe', 'A1'),
+('Jane Smith', 'A2'),
+('Alice Johnson', 'B1'),
+('Bob Brown', 'B2');
